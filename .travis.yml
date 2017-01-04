@@ -2,18 +2,22 @@
 language: python
 sudo: false
 
+env:
+    global:
+        - SODIUM_INSTALL=bundled
+
 matrix:
     include:
         - python: 2.7
-          env: TOXENV=py27 SODIUM_INSTALL=bundled CC=gcc
+          env: TOXENV=py27
         - python: 3.3
-          env: TOXENV=py33 SODIUM_INSTALL=bundled CC=gcc
+          env: TOXENV=py33
         - python: 3.4
-          env: TOXENV=py34 SODIUM_INSTALL=bundled CC=gcc
+          env: TOXENV=py34
         - python: 3.5
-          env: TOXENV=py35 SODIUM_INSTALL=bundled CC=gcc
+          env: TOXENV=py35
         - python: pypy
-          env: TOXENV=pypy SODIUM_INSTALL=bundled CC=gcc
+          env: TOXENV=pypy
         #- python: pypy3
         #- env: TOXENV=pypy3
         - python: 3.5
