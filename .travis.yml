@@ -5,15 +5,15 @@ sudo: false
 matrix:
     include:
         - python: 2.7
-          env: TOXENV=py27
+          env: TOXENV=py27 SODIUM_INSTALL=bundled CC=gcc
         - python: 3.3
-          env: TOXENV=py33
+          env: TOXENV=py33 SODIUM_INSTALL=bundled CC=gcc
         - python: 3.4
-          env: TOXENV=py34
+          env: TOXENV=py34 SODIUM_INSTALL=bundled CC=gcc
         - python: 3.5
-          env: TOXENV=py35
+          env: TOXENV=py35 SODIUM_INSTALL=bundled CC=gcc
         - python: pypy
-          env: TOXENV=pypy
+          env: TOXENV=pypy SODIUM_INSTALL=bundled CC=gcc
         #- python: pypy3
         #- env: TOXENV=pypy3
         - python: 3.5
@@ -34,6 +34,7 @@ install:
         virtualenv --python="$PYENV_ROOT/versions/pypy-$PYPY_VERSION/bin/python" "$HOME/virtualenvs/pypy-$PYPY_VERSION"
         source "$HOME/virtualenvs/pypy-$PYPY_VERSION/bin/activate"
       fi
+  - pip install -r requirements.txt
   - travis_retry pip install tox
 
 script:

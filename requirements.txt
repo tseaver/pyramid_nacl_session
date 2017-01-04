@@ -1,0 +1,2 @@
+git+https://github.com/lmctv/pynacl.git@add-generichash-oneshot#egg=PyNaCl-1.1.0dev1
+pyramid==1.7.3
